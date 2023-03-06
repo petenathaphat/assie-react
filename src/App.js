@@ -5,7 +5,7 @@ import "./stylesheet.css";
 function App() {
   return (
     <ChakraProvider>
-      <Box bg="url('/src/assie-bg.jpg') no-repeat center center fixed" bgSize="cover" >
+      <Box bg="url('/src/assie-bg-new.jpg') no-repeat center center fixed" bgSize="cover" >
         <CreateEventPage />
       </Box>
     </ChakraProvider>
@@ -41,7 +41,7 @@ function CreateEventPage() {
         <FormLabel>วันที่</FormLabel>
         <Input type="date" />
       </FormControl>
-      <Button colorScheme="orange" size="md" w="full" mt={2}>Create Event</Button>
+      <Button colorScheme="blue" size="md" w="full" mt={2}>Create Event</Button>
     </Box>
   );
 }

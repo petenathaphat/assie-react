@@ -1,6 +1,7 @@
 import { Box, Button, FormControl, FormLabel, Heading, Input, Textarea } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./stylesheet.css";
 
 function App() {
@@ -45,41 +46,52 @@ function HomePage() {
   );
 }
 
-// Create the EventList component
 function EventList({ events }) {
   return (
-    <Box>
+    <Box
+      maxW="xl"
+      mx="auto"
+      m={5}
+      p={6}
+      borderWidth={1}
+      borderRadius={12}
+        // boxShadow="md"
+      borderColor="gray.200"
+      bg="white"
+    >
       <Heading as="h2" size="md" color="gray.800" mb={4}>
         Events Today
       </Heading>
-      {/* Loop through the events array and render each event */}
-      {events.map((event, index) => (
-        <Box
-          key={index}
-          mb={4}
-          p={6}
-          borderWidth={1}
-          borderRadius={12}
-          boxShadow="md"
-          bg="white"
-        >
-          <Heading as="h3" size="sm" color="gray.800" mb={2}>
-            {event.name}
-          </Heading>
-          <Box mb={2}>
-            <b>Description: </b> {event.description}
+      <Box>
+        {events.map((event, index) => (
+          <Box
+            key={index}
+            mb={4}
+            p={6}
+            borderWidth={1}
+            borderRadius={12}
+            boxShadow="md"
+            bg="white"
+          >
+            <Heading as="h3" size="sm" color="gray.800" mb={2}>
+              {event.name}
+            </Heading>
+            <Box mb={2}>
+              <b>Description: </b> {event.description}
+            </Box>
+            <Box mb={2}>
+              <b>Location: </b> {event.location}
+            </Box>
+            <Box mb={2}>
+              <b>Date: </b> {event.date}
+            </Box>
           </Box>
-          <Box mb={2}>
-            <b>Location: </b> {event.location}
-          </Box>
-          <Box mb={2}>
-            <b>Date: </b> {event.date}
-          </Box>
-        </Box>
-      ))}
+        ))}
+      </Box>
     </Box>
   );
 }
+
 
 function CreateEventPage() {
   return (
